@@ -32,7 +32,7 @@
     <groupId>org.cloudfoundry</groupId>
     <artifactId>java-buildpack-container-customizer</artifactId>
     <name>Cloud Foundry Spring Boot Container Customizer</name>
-    <version>1.0.0.BUILD-SNAPSHOT</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>jar</packaging>
     <url>https://github.com/cloudfoundry/java-buildpack-container-customizer</url>
 
