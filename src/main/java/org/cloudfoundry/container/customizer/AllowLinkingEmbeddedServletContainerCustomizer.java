@@ -19,6 +19,7 @@ package org.cloudfoundry.container.customizer;
 import org.apache.catalina.Context;
 import org.apache.catalina.Lifecycle;
 import org.apache.catalina.LifecycleEvent;
+import org.apache.catalina.LifecycleListener;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
@@ -39,13 +40,18 @@ final class AllowLinkingEmbeddedServletContainerCustomizer implements EmbeddedSe
             return;
         }
 
-        ((TomcatEmbeddedServletContainerFactory) container).addContextLifecycleListeners(this::allowLinking);
+        ((TomcatEmbeddedServletContainerFactory) container).addContextLifecycleListeners(new AllowLinkingLifecycleListener());
     }
 
-    private void allowLinking(LifecycleEvent event) {
-        if (Lifecycle.CONFIGURE_START_EVENT.equals(event.getType())) {
-            ((Context) event.getLifecycle()).getResources().setAllowLinking(true);
+    private static final class AllowLinkingLifecycleListener implements LifecycleListener {
+
+        @Override
+        public void lifecycleEvent(LifecycleEvent event) {
+            if (Lifecycle.CONFIGURE_START_EVENT.equals(event.getType())) {
+                ((Context) event.getLifecycle()).getResources().setAllowLinking(true);
+            }
         }
+
     }
 
 }
