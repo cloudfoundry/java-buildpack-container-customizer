@@ -7,6 +7,7 @@ The project depends on Java 8.  To build from source, run the following:
 ```shell
 $ ./mvnw clean package
 ```
+
 ## Contributing
 [Pull requests][u] and [Issues][i] are welcome.
 
