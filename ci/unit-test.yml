@@ -10,5 +10,8 @@ image_resource:
 inputs:
 - name: java-buildpack-container-customizer
 
+caches:
+- path: m2
+
 run:
   path: java-buildpack-container-customizer/ci/unit-test.sh
