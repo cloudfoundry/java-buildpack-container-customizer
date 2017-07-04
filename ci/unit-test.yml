@@ -11,7 +11,7 @@ inputs:
 - name: java-buildpack-container-customizer
 
 caches:
-- path: m2
+- path: maven
 
 run:
   path: java-buildpack-container-customizer/ci/unit-test.sh
