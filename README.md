@@ -2,7 +2,7 @@
 This project provides a [Spring Boot `EmbeddedServletContainerCustomizer`][m] that configures Tomcat to read from symbolic links.
 
 ## Development
-The project depends on Java 8.  To build from source, run the following:
+The project depends on Java 7.  To build from source, run the following:
 
 ```shell
 $ ./mvnw clean package
