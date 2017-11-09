@@ -7,10 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="java-buildpack-container-customizer" />
+        <module name="java-buildpack-container-customizer-boot-1" />
+        <module name="java-buildpack-container-customizer-boot-2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="java-buildpack-container-customizer" target="1.7" />
+      <module name="java-buildpack-container-customizer" target="1.8" />
+      <module name="java-buildpack-container-customizer-boot-1" target="1.8" />
+      <module name="java-buildpack-container-customizer-boot-2" target="1.8" />
+      <module name="java-buildpack-container-customizer-parent" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

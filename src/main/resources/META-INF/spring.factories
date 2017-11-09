@@ -1,1 +1,0 @@
-org.springframework.context.ApplicationContextInitializer=org.cloudfoundry.container.customizer.AllowLinkingApplicationContextInitializer

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.cloudfoundry.container.customizer.boot1.AllowLinkingAutoConfiguration,\
+org.cloudfoundry.container.customizer.boot2.AllowLinkingAutoConfiguration
