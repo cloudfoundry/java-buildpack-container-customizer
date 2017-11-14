@@ -16,12 +16,13 @@
 
 package org.cloudfoundry.container.customizer.boot2;
 
+import org.apache.catalina.Context;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@ConditionalOnClass(TomcatServletWebServerFactory.class)
+@ConditionalOnClass({Context.class, TomcatServletWebServerFactory.class})
 @Configuration
 public class AllowLinkingAutoConfiguration {
 
