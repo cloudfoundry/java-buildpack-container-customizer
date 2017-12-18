@@ -17,17 +17,18 @@
 package org.cloudfoundry.container.customizer.boot2;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.Lifecycle;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.core.Ordered;
+
+import static org.apache.catalina.Lifecycle.CONFIGURE_START_EVENT;
 
 final class AllowLinkingWebServerFactoryCustomizer implements WebServerFactoryCustomizer<TomcatServletWebServerFactory>, Ordered {
 
     @Override
     public void customize(TomcatServletWebServerFactory server) {
         server.addContextLifecycleListeners(event -> {
-            if (Lifecycle.CONFIGURE_START_EVENT.equals(event.getType())) {
+            if (CONFIGURE_START_EVENT.equals(event.getType())) {
                 ((Context) event.getLifecycle()).getResources().setAllowLinking(true);
             }
         });
