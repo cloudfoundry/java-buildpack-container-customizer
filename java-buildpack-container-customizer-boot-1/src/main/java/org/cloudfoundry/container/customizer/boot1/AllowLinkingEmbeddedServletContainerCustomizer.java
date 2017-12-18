@@ -16,6 +16,8 @@
 
 package org.cloudfoundry.container.customizer.boot1;
 
+import org.apache.catalina.Context;
+import org.apache.catalina.Lifecycle;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
@@ -34,7 +36,11 @@ final class AllowLinkingEmbeddedServletContainerCustomizer implements EmbeddedSe
             return;
         }
 
-        ((TomcatEmbeddedServletContainerFactory) container).addContextCustomizers(context -> context.getResources().setAllowLinking(true));
+        ((TomcatEmbeddedServletContainerFactory) container).addContextLifecycleListeners(event -> {
+            if (Lifecycle.CONFIGURE_START_EVENT.equals(event.getType())) {
+                ((Context) event.getLifecycle()).getResources().setAllowLinking(true);
+            }
+        });
     }
 
     @Override

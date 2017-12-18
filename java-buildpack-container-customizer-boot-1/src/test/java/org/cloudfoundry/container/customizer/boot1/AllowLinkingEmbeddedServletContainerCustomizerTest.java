@@ -31,7 +31,7 @@ public final class AllowLinkingEmbeddedServletContainerCustomizerTest {
 
         new AllowLinkingEmbeddedServletContainerCustomizer().customize(factory);
 
-        assertThat(factory.getTomcatContextCustomizers()).hasSize(1);
+        assertThat(factory.getContextLifecycleListeners()).hasSize(1);
     }
 
     @Test

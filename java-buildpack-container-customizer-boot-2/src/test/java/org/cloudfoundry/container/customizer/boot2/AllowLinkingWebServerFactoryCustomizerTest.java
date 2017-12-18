@@ -29,7 +29,7 @@ public final class AllowLinkingWebServerFactoryCustomizerTest {
 
         new AllowLinkingWebServerFactoryCustomizer().customize(server);
 
-        assertThat(server.getTomcatContextCustomizers()).hasSize(1);
+        assertThat(server.getContextLifecycleListeners()).hasSize(2);
     }
 
 }

@@ -16,6 +16,8 @@
 
 package org.cloudfoundry.container.customizer.boot2;
 
+import org.apache.catalina.Context;
+import org.apache.catalina.Lifecycle;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.core.Ordered;
@@ -24,7 +26,11 @@ final class AllowLinkingWebServerFactoryCustomizer implements WebServerFactoryCu
 
     @Override
     public void customize(TomcatServletWebServerFactory server) {
-        server.addContextCustomizers(context -> context.getResources().setAllowLinking(true));
+        server.addContextLifecycleListeners(event -> {
+            if (Lifecycle.CONFIGURE_START_EVENT.equals(event.getType())) {
+                ((Context) event.getLifecycle()).getResources().setAllowLinking(true);
+            }
+        });
     }
 
     @Override
