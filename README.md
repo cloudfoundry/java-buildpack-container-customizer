@@ -1,4 +1,12 @@
 # Cloud Foundry Spring Boot Tomcat Customizer
+
+| Job | Status
+| --- | ------
+| `unit-test` | [![unit-test-master](https://java-experience.ci.springapps.io/api/v1/teams/java-experience/pipelines/container-customizer/jobs/unit-test/badge)](https://java-experience.ci.springapps.io/teams/java-experience/pipelines/container-customizer/jobs/unit-test)
+| `unit-test-release` | [![unit-test-master](https://java-experience.ci.springapps.io/api/v1/teams/java-experience/pipelines/container-customizer/jobs/unit-test-release/badge)](https://java-experience.ci.springapps.io/teams/java-experience/pipelines/container-customizer/jobs/unit-test-release)
+| `deploy` | [![deploy-master](https://java-experience.ci.springapps.io/api/v1/teams/java-experience/pipelines/container-customizer/jobs/deploy/badge)](https://java-experience.ci.springapps.io/teams/java-experience/pipelines/container-customizer/jobs/deploy)
+| `deploy-release` | [![deploy-master](https://java-experience.ci.springapps.io/api/v1/teams/java-experience/pipelines/container-customizer/jobs/deploy-release/badge)](https://java-experience.ci.springapps.io/teams/java-experience/pipelines/container-customizer/jobs/deploy-release)
+
 This project provides a [Spring Boot `EmbeddedServletContainerCustomizer`][m] that configures Tomcat to read from symbolic links.
 
 ## Development
