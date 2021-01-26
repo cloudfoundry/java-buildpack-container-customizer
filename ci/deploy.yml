@@ -6,6 +6,8 @@ image_resource:
   source:
     repository: openjdk
     tag: 8-jdk
+    username: ((docker-username))
+    password: ((docker-password))
 
 inputs:
 - name: java-buildpack-container-customizer
